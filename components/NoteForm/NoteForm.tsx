@@ -42,11 +42,11 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
     
     const queryClient = useQueryClient();
 
-    const { mutate, isPending, isSuccess} = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationFn: (newNote: NewNote) => createNote(newNote),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['notes'] });
-            onClose(); 
+            onClose();
         },
     });
 
@@ -58,9 +58,7 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
 
     const handleSubmit = (values: FormValues, formikHelpers: FormikHelpers<FormValues>) => {
         mutate(values);
-        if (isSuccess) {
-         formikHelpers.resetForm();   
-        }
+        formikHelpers.resetForm();
     };
 
     return (
@@ -102,9 +100,9 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
                     <button
                         type="submit"
                         className={css.submitButton}
-                        disabled={false}
+                        disabled={isPending ? true : false} 
                     >
-                        {isPending ? 'Creating...' : 'Create note'}
+                        Create note
                     </button>
                 </div>
             </Form>

@@ -2,10 +2,10 @@ import css from './SearchBox.module.css';
 
 interface SearchBoxProps {
     onSearch: (search: string) => void,
-    inputValue: string
+    searchValue: string
 };
 
-const SearchBox = ({ onSearch, inputValue}: SearchBoxProps) => {
+const SearchBox = ({ onSearch, searchValue}: SearchBoxProps) => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onSearch(event.target.value);
@@ -14,7 +14,7 @@ const SearchBox = ({ onSearch, inputValue}: SearchBoxProps) => {
         <input
             className={css.input}
             type="text"
-            defaultValue={inputValue}
+            defaultValue={searchValue}
             placeholder="Search notes"
             onChange={handleChange}
         />

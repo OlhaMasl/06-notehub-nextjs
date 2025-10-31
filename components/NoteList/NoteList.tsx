@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 interface NoteListProps {
     noteSet: Note[],
-}
+};
 
 const NoteList = ({ noteSet }: NoteListProps) => {
 
@@ -36,9 +36,8 @@ const NoteList = ({ noteSet }: NoteListProps) => {
                     <button className={css.button} onClick={() => { handleDelete(note.id) }}>Delete</button>
                 </div>
             </li>))}
-            
         </ul>
     )
 };
 
-export default NoteList
+export default NoteList;

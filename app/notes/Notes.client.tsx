@@ -35,7 +35,7 @@ const NotesClient = () => {
     <>
   <div className={css.app}>
 	<header className={css.toolbar}>
-          <SearchBox onSearch={handleSearch} inputValue={searchValue } />
+          <SearchBox onSearch={handleSearch} searchValue={searchValue } />
     {data && data?.totalPages>1 &&<Pagination page={currentPage} onChangeFn={(selectedPage)=>setCurrentPage(selectedPage)} total={data?.totalPages} />}
 		<button className={css.button} onClick={openModal}>Create note +</button>
         </header>
